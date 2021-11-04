@@ -60,6 +60,7 @@ const Pokedex = defineComponent({
     PokemonCard,
   },
   data() {
+    const poke = {};
     return {
       searchBar: 0,
       loading: true,
@@ -67,13 +68,19 @@ const Pokedex = defineComponent({
       prev: 0,
       nextt: 1,
       counter: 1,
-      pokemon: {},
+      pokemon: poke,
     };
   },
   mounted() {
     getPokemonApi(this.counter).then((response) => {
-      this.pokemon = response;
-      this.loading = false;
+      if (response !== undefined) {
+        this.pokemon = response;
+        this.loading = false;
+      } else {
+        alert(
+          "Ocorreu um erro com a sua Poke-requisição!! Por favor tente novamente!"
+        );
+      }
     });
     switch (this.counter) {
       case 1:
@@ -87,7 +94,19 @@ const Pokedex = defineComponent({
   methods: {
     surprise() {
       this.loading = true;
-      this.counter = 1 + Math.round(Math.random() * 897);
+      const random = 1 + Math.round(Math.random() * 897);
+      getPokemonApi(random).then((response) => {
+        if (response !== undefined) {
+          this.counter = random;
+          this.pokemon = response;
+          this.loading = false;
+        } else {
+          alert(
+            "Ocorreu um erro com a sua Poke-requisição!! Por favor tente novamente!"
+          );
+          this.loading = false;
+        }
+      });
       switch (this.counter) {
         case 1:
           this.prev = 0;
@@ -96,36 +115,48 @@ const Pokedex = defineComponent({
           this.nextt = 0;
           break;
       }
-      getPokemonApi(this.counter).then((response) => {
-        this.pokemon = response;
-        this.loading = false;
-      });
     },
     next() {
       this.loading = true;
-      this.counter++;
-      if (this.prev === 0) this.prev = 1;
-      if (this.counter === 898) this.nextt = 0;
-      getPokemonApi(this.counter).then((response) => {
-        this.pokemon = response;
-        this.loading = false;
+      const nextNumber = this.counter + 1;
+      getPokemonApi(nextNumber).then((response) => {
+        if (response !== undefined) {
+          this.counter = nextNumber;
+          this.pokemon = response;
+          this.loading = false;
+          if (this.prev === 0) this.prev = 1;
+          if (this.counter === 898) this.nextt = 0;
+        } else {
+          alert(
+            "Ocorreu um erro com a sua Poke-requisição!! Por favor tente novamente!"
+          );
+          this.loading = false;
+        }
       });
     },
     previous() {
       this.loading = true;
-      this.counter--;
-      if (this.nextt === 0) this.nextt = 1;
-      if (this.counter === 1) this.prev = 0;
-      getPokemonApi(this.counter).then((response) => {
-        this.pokemon = response;
-        this.loading = false;
+      const previousNumber = this.counter - 1;
+      getPokemonApi(previousNumber).then((response) => {
+        if (response !== undefined) {
+          this.counter = previousNumber;
+          this.pokemon = response;
+          this.loading = false;
+          if (this.nextt === 0) this.nextt = 1;
+          if (this.counter === 1) this.prev = 0;
+        } else {
+          alert(
+            "Ocorreu um erro com a sua Poke-requisição!! Por favor tente novamente!"
+          );
+          this.loading = false;
+        }
       });
     },
     handleSearch() {
       const absoluteIntegerSearching = Math.round(Math.abs(this.searchBar));
-      if (absoluteIntegerSearching >= 1 && absoluteIntegerSearching <= 898) {
-        this.loading = true;
-        getPokemonApi(absoluteIntegerSearching).then((response) => {
+      this.loading = true;
+      getPokemonApi(absoluteIntegerSearching).then((response) => {
+        if (response !== undefined) {
           this.pokemon = response;
           this.counter = absoluteIntegerSearching;
           switch (this.counter) {
@@ -138,10 +169,14 @@ const Pokedex = defineComponent({
           }
           this.searchBar = 0;
           this.loading = false;
-        });
-      } else {
-        this.searchBar = 0;
-      }
+        } else {
+          this.searchBar = 0;
+          this.loading = false;
+          alert(
+            "Ocorreu um erro com a sua Poke-requisição!! Por favor tente novamente!"
+          );
+        }
+      });
     },
   },
 });
