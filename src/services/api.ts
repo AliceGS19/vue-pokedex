@@ -22,10 +22,8 @@ export async function getPokemonApi(
         data: Ipokemon;
       }
       const response: Idata = await axios.get(getPokemonlink);
-      console.log(response);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return;
     }
   }

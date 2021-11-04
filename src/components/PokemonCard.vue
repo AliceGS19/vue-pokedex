@@ -68,15 +68,12 @@ const PokemonCard = defineComponent({
     saveFav(pokemon: Ipokemon) {
       this.PUSH_POKEMON(pokemon);
       this.isFav(pokemon.id);
-      console.log(this.favoritePokemons);
     },
     deleteFav(id: number) {
       this.DEL_POKEMON(id);
       this.isFav(id);
-      console.log(this.favoritePokemons);
     },
     isFav(id: number | undefined) {
-      console.log(this.favoritePokemons);
       const copyFavorites: Array<Ipokemon> = this.favoritePokemons;
       if (copyFavorites.length !== 0) {
         if (
