@@ -162,7 +162,7 @@ const Pokedex = defineComponent({
     handleSearch() {
       const absoluteIntegerSearching = Math.round(Math.abs(this.searchBar));
       this.loading = true;
-      if (absoluteIntegerSearching > 898) {
+      if (absoluteIntegerSearching > 898 ||  absoluteIntegerSearching <= 0) {
         alert("O id inserido não corresponde a nenhum pokémon!!");
         this.searchBar = 0;
         this.loading = false;
