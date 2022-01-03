@@ -18,6 +18,7 @@ export async function getPokemonApi(
   identity: number
 ): Promise<Ipokemon | undefined> {
   const getPokemonlink = listUrl + "/" + identity;
+  console.log(process.env.URL)
   async function getPokemon(): Promise<Ipokemon | undefined> {
     try {
       interface Idata {
