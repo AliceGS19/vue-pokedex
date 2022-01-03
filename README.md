@@ -25,7 +25,7 @@ Bibliotecas utilizadas:
 ---
 
 # Funcionalidades por página:
-. Página inicial:
+Página inicial:
 - Exibição de um card de pokémon com botão para favoritar/desfavoritar;
 - Botão "Pokémon posterior" (desabilitado quando no último pokémon da lista): Troca o pokémon para o próximo da lista(API);
 - Botão "Pokémon anterior" (desabilitado quando no primeiro pokémon da lista): Troca o pokémon para o anterior da lista(API);
@@ -37,7 +37,7 @@ Caso o valor digitado seja válido, uma requisição na api será feita para mud
 processo para quando o id digitado não é valido será realizado.
 - Link para a página pokémons favoritos: Altera a rota para acessar página de pokémons favoritos.
 
-. Página Pokémons favoritos:
+Página Pokémons favoritos:
 - Link para página inicial (pokédex);
 - Tag com a mensagem "Não há pokémons favoritos" (caso não haja pokémons favoritos);
 - Exibição de cards para todos os pokémons favoritos (caso haja algum) com botão para favoritar/desfavoritar
