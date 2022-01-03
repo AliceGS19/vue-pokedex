@@ -1,10 +1,12 @@
 import axios from "axios";
+import dotenv from "dotenv"
 import { Ilist, Ipokemon } from "@/types/pokeAPI.interface";
 
-const listUrl = process.env.URL || "https://pokeapi.co/api/v2/pokemon";
+dotenv.config();
+
+const listUrl = process.env.URL || "";
 export function pokeListApi(): Promise<Ilist> {
   let list: Ilist | null = null;
-  console.log(process.env.URL)
   const result: Promise<Ilist> = axios
     .get<Ilist>(listUrl)
     .then(function (response) {
@@ -18,7 +20,6 @@ export async function getPokemonApi(
   identity: number
 ): Promise<Ipokemon | undefined> {
   const getPokemonlink = listUrl + "/" + identity;
-  console.log(process.env.URL)
   async function getPokemon(): Promise<Ipokemon | undefined> {
     try {
       interface Idata {
