@@ -1,22 +1,24 @@
 # vue-pokedex
 Aplicação de pokedex contruída com o framework Vue.js, na linguagem Typescript.
 
-- Bibliotecas utilizadas:
-. vuex;
-. vue-router;
-. axios.
+---
+
+# Bibliotecas utilizadas:
+- vuex;
+- vue-router;
+- axios.
 
 ---
 
 # Deploy
 
-. Motor:
+Motor:
 - node.js.
   
-. Linguagen:
+Linguagen:
 - JavaScript.
 
-. Bibliotecas utilizadas:
+Bibliotecas utilizadas:
 - express;
 - serve-static;
 
