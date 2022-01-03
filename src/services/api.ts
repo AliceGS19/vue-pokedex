@@ -1,10 +1,7 @@
 import axios from "axios";
 import { Ilist, Ipokemon } from "@/types/pokeAPI.interface";
-import dotenv from "dotenv";
 
-dotenv.config();
-
-const listUrl = process.env.pokeURL || "";
+const listUrl = process.env.URL || "https://pokeapi.co/api/v2/pokemon";
 export function pokeListApi(): Promise<Ilist> {
   let list: Ilist | null = null;
   const result: Promise<Ilist> = axios

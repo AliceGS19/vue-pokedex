@@ -1,5 +1,5 @@
 apps:
-    -   script: ./server.js
+    -   script: ./server.mjs
         name: vue-pokedex-frontend
         exec_mode: cluster
         instances: 2
