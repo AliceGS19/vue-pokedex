@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "npm run build",
-    "start": "pm2-runtime start ecosystem.config.yml",
+    "start": "node server.mjs",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
@@ -18,7 +18,6 @@
     "express": "^4.17.2",
     "jest": "^24.9.0",
     "node.js": "^0.0.1-security",
-    "pm2": "^5.1.2",
     "serve-static": "^1.14.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
