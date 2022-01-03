@@ -4,6 +4,7 @@ import { Ilist, Ipokemon } from "@/types/pokeAPI.interface";
 const listUrl = process.env.URL || "https://pokeapi.co/api/v2/pokemon";
 export function pokeListApi(): Promise<Ilist> {
   let list: Ilist | null = null;
+  console.log(process.env.URL)
   const result: Promise<Ilist> = axios
     .get<Ilist>(listUrl)
     .then(function (response) {
