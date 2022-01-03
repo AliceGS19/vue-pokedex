@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run dev",
     "postinstall": "npm run build",
     "start": "pm2-runtime start ecosystem.config.yml",
     "serve": "vue-cli-service serve",
