@@ -10,7 +10,7 @@ Aplicação de pokedex contruída com o framework Vue.js, na linguagem Typescrip
 
 ---
 
-# Deploy
+# Deploy Heroku
 
 Motor:
 - node.js.
@@ -20,7 +20,10 @@ Linguagen:
 
 Bibliotecas utilizadas:
 - express;
-- serve-static;
+- serve-static.
+
+Link:
+- https://vue-pokedex-frontend.herokuapp.com/#/
 
 ---
 
